@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahan's Learning World 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sun: #FFD54F;
+    --grass: #66BB6A;
+    --candy: #F06292;
+    --purple: #CE93D8;
+    --orange: #FFB74D;
+    --white: #FFFDE7;
+    --dark: #37474F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(160deg, #e0f7fa 0%, #f3e5f5 50%, #fffde7 100%);
+    min-height: 100vh;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* Floating clouds background */
+  body::before {
+    content: '☁️ ☁️ ☁️';
+    font-size: 60px;
+    position: fixed;
+    top: 10px;
+    left: -20px;
+    opacity: 0.15;
+    animation: floatCloud 18s linear infinite;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 0;
+  }
+
+  @keyframes floatCloud {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(110vw); }
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #29B6F6, #AB47BC);
+    padding: 30px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    clip-path: ellipse(110% 100% at 50% 0%);
+  }
+
+  header::after {
+    content: '⭐ 🌟 ✨ 🌟 ⭐';
+    font-size: 28px;
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    animation: twinkle 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    to { opacity: 1; transform: translateX(-50%) scale(1.1); }
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--sun), var(--orange));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    margin: 0 auto 14px;
+    border: 5px solid white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    animation: bobble 3s ease-in-out infinite;
+  }
+
+  @keyframes bobble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.4rem;
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    letter-spacing: 1px;
+  }
+
+  header p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 16px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    margin: 32px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* CARDS GRID */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    border-radius: 20px;
+    padding: 22px 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 3px solid rgba(255,255,255,0.7);
+    animation: popIn 0.5s ease both;
+  }
+
+  .card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
+  .card:nth-child(5) { animation-delay: 0.5s; }
+
+  .card .icon { font-size: 2.4rem; margin-bottom: 8px; }
+  .card h3 { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 4px; }
+  .card p { font-size: 0.88rem; line-height: 1.5; font-weight: 600; color: rgba(0,0,0,0.65); }
+
+  .card-blue { background: linear-gradient(135deg, #B3E5FC, #E1F5FE); }
+  .card-pink { background: linear-gradient(135deg, #FCE4EC, #F8BBD9); }
+  .card-green { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .card-yellow { background: linear-gradient(135deg, #FFFDE7, #FFF9C4); }
+  .card-purple { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+  .card-orange { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+
+  /* SUBJECT PILLS */
+  .subjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transition: transform 0.2s;
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: default;
+  }
+
+  .pill:hover { transform: scale(1.08); }
+  .pill-blue { background: #B3E5FC; color: #01579B; }
+  .pill-green { background: #C8E6C9; color: #1B5E20; }
+  .pill-pink { background: #F8BBD9; color: #880E4F; }
+  .pill-yellow { background: #FFF9C4; color: #F57F17; }
+  .pill-purple { background: #E1BEE7; color: #4A148C; }
+  .pill-orange { background: #FFE0B2; color: #E65100; }
+  .pill-teal { background: #B2EBF2; color: #006064; }
+  .pill-red { background: #FFCDD2; color: #B71C1C; }
+
+  /* BIG INFO BOX */
+  .info-box {
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border: 3px solid rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  .info-box.blue { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .info-box.green { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .info-box.yellow { background: linear-gradient(135deg, #FFFDE7, #FFF9C4); }
+  .info-box.pink { background: linear-gradient(135deg, #FCE4EC, #F8BBD9); }
+  .info-box.purple { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 2px dashed rgba(0,0,0,0.08);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-row .emoji { font-size: 1.5rem; flex-shrink: 0; }
+  .info-row .label { font-weight: 800; font-size: 0.88rem; color: var(--dark); }
+  .info-row .val { font-size: 0.88rem; color: rgba(0,0,0,0.65); font-weight: 600; line-height: 1.5; }
+
+  /* PROGRESS BAR */
+  .progress-wrap { margin-top: 5px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
+  .progress-bar {
+    height: 14px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 20px;
+    animation: growBar 1.2s ease both;
+  }
+  @keyframes growBar {
+    from { width: 0 !important; }
+  }
+  .bar-blue { background: linear-gradient(90deg, #29B6F6, #0288D1); }
+  .bar-green { background: linear-gradient(90deg, #66BB6A, #2E7D32); }
+  .bar-pink { background: linear-gradient(90deg, #F06292, #C2185B); }
+  .bar-orange { background: linear-gradient(90deg, #FFB74D, #E65100); }
+  .bar-purple { background: linear-gradient(90deg, #CE93D8, #7B1FA2); }
+
+  /* RULE LIST */
+  .rule-list { list-style: none; padding: 0; }
+  .rule-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 2px dashed rgba(0,0,0,0.07);
+    line-height: 1.4;
+  }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li span:first-child { font-size: 1.2rem; flex-shrink: 0; }
+
+  /* GRADE TABLE */
+  .grade-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  .grade-table th {
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    text-align: left;
+    color: white;
+    background: linear-gradient(90deg, #AB47BC, #7B1FA2);
+    border-radius: 10px 0 0 10px;
+  }
+  .grade-table th:last-child { border-radius: 0 10px 10px 0; }
+  .grade-table td {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .grade-table td:first-child { border-radius: 10px 0 0 10px; }
+  .grade-table td:last-child { border-radius: 0 10px 10px 0; }
+  .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+  .badge-a { background: #C8E6C9; color: #1B5E20; }
+  .badge-b { background: #BBDEFB; color: #0D47A1; }
+  .badge-c { background: #FFF9C4; color: #F57F17; }
+  .badge-d { background: #FFE0B2; color: #E65100; }
+  .badge-f { background: #FFCDD2; color: #B71C1C; }
+
+  /* TIPS BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #FFFDE7, #FFF176);
+    border-radius: 20px;
+    padding: 20px 24px;
+    border: 3px solid #FDD835;
+    box-shadow: 0 4px 16px rgba(253,216,53,0.3);
+    margin-top: 6px;
+  }
+
+  .tip-box p {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #5D4037;
+  }
+
+  /* SCHOOL CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .contact-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--sky);
+    transition: transform 0.2s;
+  }
+
+  .contact-card:hover { transform: translateY(-4px); }
+  .contact-card .icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .contact-card .name { font-weight: 800; font-size: 0.9rem; }
+  .contact-card .role { font-size: 0.78rem; color: #888; font-weight: 600; }
+  .contact-card .email { font-size: 0.75rem; color: #29B6F6; font-weight: 700; word-break: break-all; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    color: #AB47BC;
+    animation: twinkle 2s infinite alternate;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="avatar">🧒</div>
+  <h1>Mohammed Zahan's Learning World</h1>
+  <p>🏫 GEMS Westminster School – Sharjah &nbsp;|&nbsp; 🇦🇪 UAE</p>
+</header>
+
+<main>
+
+  <!-- MY SCHOOL INFO -->
+  <div class="section-title" style="color:#0288D1;">🏫 My School</div>
+  <div class="cards">
+    <div class="card card-blue">
+      <div class="icon">🏫</div>
+      <h3>School</h3>
+      <p>GEMS Westminster School, Sharjah</p>
+    </div>
+    <div class="card card-green">
+      <div class="icon">📚</div>
+      <h3>Curriculum</h3>
+      <p>English (British) National Curriculum</p>
+    </div>
+    <div class="card card-yellow">
+      <div class="icon">⏰</div>
+      <h3>School Hours</h3>
+      <p>7:40 AM – 2:18 PM<br>Sunday to Thursday</p>
+    </div>
+    <div class="card card-pink">
+      <div class="icon">🌐</div>
+      <h3>Language</h3>
+      <p>English (medium), Arabic, Islamic Studies & Social Studies</p>
+    </div>
+    <div class="card card-purple">
+      <div class="icon">🎯</div>
+      <h3>Vision</h3>
+      <p>"Excellence Through Teamwork, Success for All!"</p>
+    </div>
+  </div>
+
+  <!-- WHAT I LEARN -->
+  <div class="section-title" style="color:#7B1FA2;">📖 What I Learn at School</div>
+  <div class="info-box purple">
+    <div class="subjects">
+      <span class="pill pill-blue">📐 Maths</span>
+      <span class="pill pill-green">🔬 Science</span>
+      <span class="pill pill-pink">✏️ English</span>
+      <span class="pill pill-yellow">🕌 Islamic Studies</span>
+      <span class="pill pill-purple">🌍 Social Studies</span>
+      <span class="pill pill-orange">🎵 Music</span>
+      <span class="pill pill-teal">🖥️ IT / Computer</span>
+      <span class="pill pill-red">🏃 Physical Education</span>
+      <span class="pill pill-blue">🌿 Arabic</span>
+      <span class="pill pill-green">🎨 Art</span>
+      <span class="pill pill-pink">📖 Library Reading</span>
+      <span class="pill pill-yellow">🧪 Science Lab</span>
+    </div>
+  </div>
+
+  <!-- SCIENCE NOTES: LEAVES -->
+  <div class="section-title" style="color:#2E7D32;">🌿 Science – What I Know About LEAVES</div>
+  <div class="info-box green">
+    <div style="margin-bottom:14px; font-family:'Fredoka One',cursive; font-size:1rem; color:#1B5E20;">
+      🌱 Leaves are called the <span style="background:#A5D6A7; padding:2px 10px; border-radius:20px;">"Kitchen of the Plant"</span>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🔬</span>
+      <div><div class="label">Stomata</div><div class="val">Tiny holes on leaves that let gases in and out — like a little door!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🍃</span>
+      <div><div class="label">Leaf Blade (Lamina)</div><div class="val">The flat, wide part of the leaf — the big green part you can see!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🌿</span>
+      <div><div class="label">Petiole</div><div class="val">The stalk that joins the leaf to the stem — like a handle!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">☀️</span>
+      <div><div class="label">Photosynthesis</div><div class="val">How green leaves make food using sunlight, air and water — like cooking with sunlight!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">💚</span>
+      <div><div class="label">Chlorophyll</div><div class="val">The green colour inside leaves that helps catch sunlight — like a solar panel!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🥗</span>
+      <div><div class="label">Edible Leaves</div><div class="val">We can eat: Cabbage 🥬, Lettuce 🥗, Spinach 🌿</div></div>
+    </div>
+  </div>
+
+  <!-- GEOGRAPHY: LANDFORMS -->
+  <div class="section-title" style="color:#E65100;">🏔️ Geography – Landforms I Know</div>
+  <div class="cards">
+    <div class="card card-orange">
+      <div class="icon">🏔️</div>
+      <h3>Mountains</h3>
+      <p>The highest places on Earth! They have steep sides and a pointed top.</p>
+    </div>
+    <div class="card card-blue">
+      <div class="icon">🏝️</div>
+      <h3>Island</h3>
+      <p>Land surrounded by water on all 4 sides! Like Sir Bani Yas Island in UAE.</p>
+    </div>
+    <div class="card card-green">
+      <div class="icon">🏞️</div>
+      <h3>Valley</h3>
+      <p>Low areas between mountains. Rivers often run through valleys!</p>
+    </div>
+    <div class="card card-yellow">
+      <div class="icon">🏜️</div>
+      <h3>Desert</h3>
+      <p>A very dry place! Can be hot with sand like the Rub' al Khali in UAE.</p>
+    </div>
+    <div class="card card-pink">
+      <div class="icon">🌾</div>
+      <h3>Plains</h3>
+      <p>Large flat areas of land, good for farming and building cities!</p>
+    </div>
+  </div>
+
+  <!-- UAE LANDFORMS -->
+  <div class="section-title" style="color:#01579B;">🇦🇪 UAE Landforms I Learned</div>
+  <div class="info-box blue">
+    <div class="info-row">
+      <span class="emoji">🏔️</span>
+      <div><div class="label">Highest Mountain in UAE</div><div class="val">Jebel Jais</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🏔️</span>
+      <div><div class="label">Highest Mountain in Abu Dhabi</div><div class="val">Jabel Hafit</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">⛰️</span>
+      <div><div class="label">Mountain Range in UAE</div><div class="val">Hajar Mountains</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🏜️</span>
+      <div><div class="label">Famous Desert in UAE</div><div class="val">Rub' al Khali</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🏝️</span>
+      <div><div class="label">Famous Island in UAE</div><div class="val">Sir Bani Yas Island</div></div>
+    </div>
+  </div>
+
+  <!-- GRADES EXPLAINED -->
+  <div class="section-title" style="color:#880E4F;">🏅 How Grades Work at My School</div>
+  <div class="info-box pink">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>⭐ A* – Outstanding (96–100%)</span><span>96–100%</span></div>
+      <div class="progress-bar"><div class="progress-fill bar-green" style="width:100%"></div></div>
+
+      <div class="progress-label"><span>🌟 A – Very Good (90–95%)</span><span>90–95%</span></div>
+      <div class="progress-bar"><div class="progress-fill bar-blue" style="width:92%"></div></div>
+
+      <div class="progress-label"><span>😊 B – Good (75–89%)</span><span>75–89%</span></div>
+      <div class="progress-bar"><div class="progress-fill bar-purple" style="width:82%"></div></div>
+
+      <div class="progress-label"><span>👍 C – Acceptable (60–74%)</span><span>60–74%</span></div>
+      <div class="progress-bar"><div class="progress-fill bar-orange" style="width:67%"></div></div>
+
+      <div class="progress-label"><span>📝 D – Needs Work (50–59%)</span><span>50–59%</span></div>
+      <div class="progress-bar"><div class="progress-fill bar-pink" style="width:54%"></div></div>
+    </div>
+    <p style="font-size:0.82rem; font-weight:700; color:#880E4F; margin-top:10px;">
+      💡 Primary students need 50% to pass. Secondary students need 60% to pass.
+    </p>
+  </div>
+
+  <!-- MY SCHOOL RULES -->
+  <div class="section-title" style="color:#1565C0;">📋 My School Rules – The FAB 5!</div>
+  <div class="info-box blue">
+    <ul class="rule-list">
+      <li><span>🏃</span><span>I am <strong>active and healthy</strong> — I look after my body and mind!</span></li>
+      <li><span>🤔</span><span>I can <strong>problem-solve</strong> — I try to figure things out!</span></li>
+      <li><span>🤝</span><span>I <strong>collaborate</strong> — I work well with others!</span></li>
+      <li><span>💪</span><span>I <strong>do my best</strong> — I always try my hardest!</span></li>
+      <li><span>🌍</span><span>I am a <strong>World Citizen</strong> — I respect everyone!</span></li>
+    </ul>
+  </div>
+
+  <!-- MY HOUSE -->
+  <div class="section-title" style="color:#E65100;">🏆 My School Houses</div>
+  <div class="cards">
+    <div class="card card-pink">
+      <div class="icon">🦂</div>
+      <h3>Scorpion</h3>
+      <p style="color:#C62828; font-weight:800;">Red Team</p>
+    </div>
+    <div class="card card-blue">
+      <div class="icon">🐬</div>
+      <h3>Dolphin</h3>
+      <p style="color:#0277BD; font-weight:800;">Blue Team</p>
+    </div>
+    <div class="card card-green">
+      <div class="icon">🐴</div>
+      <h3>Arabian Horse</h3>
+      <p style="color:#1B5E20; font-weight:800;">Green Team</p>
+    </div>
+    <div class="card card-yellow">
+      <div class="icon">🦅</div>
+      <h3>Falcon</h3>
+      <p style="color:#F57F17; font-weight:800;">Yellow Team</p>
+    </div>
+  </div>
+
+  <!-- MY DAILY PLAN -->
+  <div class="section-title" style="color:#4A148C;">📅 My Daily School Plan</div>
+  <div class="info-box purple">
+    <div class="info-row">
+      <span class="emoji">🌅</span>
+      <div><div class="label">Arrive at School</div><div class="val">Before 7:40 AM — gates open at 6:30 AM!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">📝</span>
+      <div><div class="label">Registration / Morning</div><div class="val">7:40 – 8:00 AM — register with teacher, get ready to learn!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">📚</span>
+      <div><div class="label">Lessons</div><div class="val">Learning all my subjects — Maths, Science, English and more!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🍎</span>
+      <div><div class="label">Break / Snack Time</div><div class="val">Healthy snacks only! Fruits, sandwiches, pasta — no chips or sweets!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">🏠</span>
+      <div><div class="label">Go Home</div><div class="val">2:18 PM — pick up from school or take the bus!</div></div>
+    </div>
+    <div class="info-row">
+      <span class="emoji">📒</span>
+      <div><div class="label">Homework Time</div><div class="val">Do homework at home — reading, revision, writing practice!</div></div>
+    </div>
+  </div>
+
+  <!-- HEALTHY SNACK TIPS -->
+  <div class="section-title" style="color:#2E7D32;">🍎 Healthy Snack Ideas for School</div>
+  <div class="tip-box">
+    <p>
+      ✅ <strong>Good to bring:</strong> Fresh fruits 🍎🍌, vegetables 🥕, sandwiches 🥪, pasta 🍝, yogurt 🥛, oat bars, fruit juice 🧃<br><br>
+      ❌ <strong>NOT allowed:</strong> Chips 🚫, chocolate 🍫, sweets 🍬, fizzy drinks 🥤, cake 🎂, nuts 🥜 (allergy risk!)<br><br>
+      💧 Always bring a water bottle — no cups available at school!
+    </p>
+  </div>
+
+  <!-- STUDY TIPS -->
+  <div class="section-title" style="color:#01579B;">💡 My Study Tips</div>
+  <div class="info-box yellow">
+    <ul class="rule-list">
+      <li><span>📖</span><span>Read every day — even for just a few minutes!</span></li>
+      <li><span>🔤</span><span>Practice phonics (letter sounds) until you know them all!</span></li>
+      <li><span>✏️</span><span>Write neatly in cursive — school teaches this from early grades!</span></li>
+      <li><span>🔢</span><span>Practice mental maths regularly — it gets easier!</span></li>
+      <li><span>📝</span><span>Complete all homework on time and put it in your Planner!</span></li>
+      <li><span>🌿</span><span>Learn your key science words — like Stomata, Chlorophyll!</span></li>
+      <li><span>🌍</span><span>Learn about UAE landforms — Jebel Jais, Rub' al Khali!</span></li>
+      <li><span>🤝</span><span>Work well with friends — teamwork makes the dream work!</span></li>
+    </ul>
+  </div>
+
+  <!-- SCHOOL CONTACTS -->
+  <div class="section-title" style="color:#37474F;">📞 Important School Contacts</div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">👩‍💼</div>
+      <div class="name">Ms. Valerie Thompson</div>
+      <div class="role">Principal</div>
+      <div class="email">valerie.t_wss@gemsedu.com</div>
+    </div>
+    <div class="contact-card">
+      <div class="icon">👩</div>
+      <div class="name">Ms. Aiysha Khan</div>
+      <div class="role">Parent Liaison (PRE)</div>
+      <div class="email">aiysha.k_wss@gemsedu.com</div>
+    </div>
+    <div class="contact-card">
+      <div class="icon">🏫</div>
+      <div class="name">School Landline</div>
+      <div class="role">General Enquiries</div>
+      <div class="email">06 5426323</div>
+    </div>
+    <div class="contact-card">
+      <div class="icon">🌐</div>
+      <div class="name">School Website</div>
+      <div class="role">Info & Newsletters</div>
+      <div class="email">gemswestminsterschool-sharjah.com</div>
+    </div>
+    <div class="contact-card">
+      <div class="icon">🚌</div>
+      <div class="name">Mr. Thomas Rajan</div>
+      <div class="role">Bus Transport (BBT)</div>
+      <div class="email">055 2378382 | thomas@bbt.ae</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  ⭐ Keep learning, keep growing, Mohammed Zahan! You are a STAR! 🌟
+</footer>
+
+</body>
+</html>
